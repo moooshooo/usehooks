@@ -2,7 +2,10 @@ const Battery = ({ level, charging, chargingTime, dischargingTime }) => {
   return (
     <>
       <div>
-        <p>Din battery just nu: {level.toFixed(0) + "%"}</p>
+        <p>Din battery just nu:{" "}
+          {level !== undefined && level !== null
+            ? `${(level * 100).toFixed(0)}%`
+            : "Okänd"}</p>
         <p>{charging ? "Laddar ⚡" : "Laddar inte 🔋"}</p>
         {charging && chargingTime ? <p>Time to full: {chargingTime}</p> : null}
         {!charging && dischargingTime ? (
