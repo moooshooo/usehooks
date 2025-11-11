@@ -1,6 +1,6 @@
 import "./App.css";
 import { useBattery, useGeolocation } from "@uidotdev/usehooks";
-import Battery from "./hooks/battery";
+import Battery from "./hooks/Battery";
 import useOnline from "./hooks/useOnline";
 import Location from "./hooks/useGeoLocation";
 

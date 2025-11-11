@@ -1,4 +1,17 @@
-function Location({ state }) {
+type geoObject = {
+  loading: boolean
+  accuracy: number | null
+  altitude: number | null
+  altitudeAccuracy: number | null
+  heading: number | null
+  latitude: number | null
+  longitude: number | null
+  speed: number | null
+  timestamp: number
+  error?: string | null
+}
+
+function Location({ state}:{ state: geoObject }) {
   if (state.loading) {
     return <p>loading... (you may need to enable permissions)</p>;
   }

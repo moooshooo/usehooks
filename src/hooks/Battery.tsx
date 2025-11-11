@@ -1,6 +1,15 @@
-const Battery = ({ level, charging, chargingTime, dischargingTime }) => {
+type batteryObject = {
+  supported: boolean
+  loading: boolean
+  level: number | null
+  charging: boolean | null
+  chargingTime: number | null
+  dischargingTime: number | null
+}
+
+const Battery = ({ level, charging, chargingTime, dischargingTime }: batteryObject) => {
   const seconds = dischargingTime; // e.g. 5400 seconds
-  const minutes = (seconds / 60).toFixed(0); // → 90 minutes
+ /*  const minutes = (seconds / 60).toFixed(0); // → 90 minutes */
   const hours = (seconds / 3600).toFixed(1); // → 1.5 hours
   return (
     <>
