@@ -62,11 +62,11 @@ function Location({ state }: { state: geoObject }) {
         <strong>Speed:</strong>{" "}
         {state.speed
           ? `${formattedSpeedMs} m/s (${formattedSpeed} km/h)`
-          : "Ingen hastighet tillgänglig"}
+          : "You are not moving"}
       </p>
       <p>
         <strong>Altitude:</strong>{" "}
-        {state.altitude ? `${formatedAltitude} m` : "Ingen höjddata"}
+        {state.altitude ? `${formatedAltitude} m` : "No altitude data"}
       </p>
       <p>
         <strong>Timestamp converted: </strong>
