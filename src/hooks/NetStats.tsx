@@ -37,7 +37,7 @@ const NetStats = ({ network }: { network: networkObject }) => {
       </p>
       <p>
         <strong>Type: </strong>
-        {network.type} 
+        {network.type ?? "N/A"} 
       </p>
     </>
   );
