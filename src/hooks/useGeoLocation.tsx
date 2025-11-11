@@ -29,7 +29,6 @@ function Location({ state }: { state: geoObject }) {
     <>
       <h3>Object alternatives:</h3>
       <p>Loading: {state.loading.toString()}</p>
-      <h3>Object alternatives:</h3>
       <p>Accuracy: {state.accuracy}</p>
       <p>Altitude: {state.altitude}</p>
       <p>Altitude Accuracy: {state.altitudeAccuracy}</p>
