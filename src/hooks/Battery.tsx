@@ -7,8 +7,8 @@ type batteryObject = {
   dischargingTime: number | null
 }
 
-const Battery = ({ level, charging, chargingTime, dischargingTime }: batteryObject) => {
-  const seconds = dischargingTime; // e.g. 5400 seconds
+const Battery = ({ level, charging, chargingTime, dischargingTime, supported, loading }: batteryObject) => {
+  const seconds = dischargingTime ?? 0 // e.g. 5400 seconds
  /*  const minutes = (seconds / 60).toFixed(0); // → 90 minutes */
   const hours = (seconds / 3600).toFixed(1); // → 1.5 hours
   return (
@@ -25,6 +25,8 @@ const Battery = ({ level, charging, chargingTime, dischargingTime }: batteryObje
         {!charging && dischargingTime ? (
           <p>Hur lång tid har du kvar?: {hours} timmar</p>
         ) : null}
+        <p>Supports ?: {supported.toString()}</p>
+        <p>Loading ?: {loading.toString()}</p>
       </div>
     </>
   );

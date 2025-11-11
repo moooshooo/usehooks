@@ -5,7 +5,7 @@ import useOnline from "./hooks/useOnline";
 import Location from "./hooks/useGeoLocation";
 
 function App() {
-  const { level, charging, chargingTime, dischargingTime } = useBattery();
+  const { level, charging, chargingTime, dischargingTime, supported, loading } = useBattery();
 
   const isOnline = useOnline();
 
@@ -16,7 +16,7 @@ function App() {
       <h1>Hooks galleri</h1>
       <div id="container">
         <div className="box">
-          <h1>useOnline</h1>
+          <h1>useOnline - FOS25</h1>
           {isOnline ? <p>🟢 Online </p> : <p>🔴 Kolla WiFi</p>}
         </div>
         <div className="box">
@@ -25,7 +25,8 @@ function App() {
             level={level}
             charging={charging}
             chargingTime={chargingTime}
-            dischargingTime={dischargingTime}
+            dischargingTime={dischargingTime} loading={loading}
+            supported={supported}
           />
         </div>
         <div className="box">
