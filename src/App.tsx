@@ -2,12 +2,14 @@ import "./App.css";
 import { useBattery, useGeolocation } from "@uidotdev/usehooks";
 import Battery from "./hooks/battery";
 import useOnline from "./hooks/useOnline";
-import Location from "./hooks/useGeoLocation"
+import Location from "./hooks/useGeoLocation";
 
 function App() {
   const { level, charging, chargingTime, dischargingTime } = useBattery();
 
   const isOnline = useOnline();
+
+  const state = useGeolocation();
 
   return (
     <>
@@ -28,7 +30,7 @@ function App() {
         </div>
         <div className="box">
           <h1>useGeolocation</h1>
-          <Location />
+          <Location state={state}/>
         </div>
         <div className="box"></div>
         <div className="box"></div>
