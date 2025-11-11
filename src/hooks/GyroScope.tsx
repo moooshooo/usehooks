@@ -4,12 +4,7 @@ type GyroscopeObject = {
   z: number | null
   error?: boolean | null
 }
-
 const Gyroscope = ({ gyroscope }: { gyroscope: GyroscopeObject }) => {
-  if (gyroscope?.error) {
-    return <p>No gyroscope, sorry.</p>
-  }
-
   return (
     <>
       <p><strong>X: </strong>{gyroscope.x?.toFixed(2) ?? "N/A"}</p>
@@ -18,5 +13,4 @@ const Gyroscope = ({ gyroscope }: { gyroscope: GyroscopeObject }) => {
     </>
   )
 }
-
 export default Gyroscope

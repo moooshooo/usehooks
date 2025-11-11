@@ -152,15 +152,16 @@ function App() {
         </div>
         <div className="box">
           <h1>useGyroscope</h1>
-          <Gyroscope gyroscope={gyroscope} />
+            {!gyroscope?.error ? <p>No gyroscope, sorry.</p>:
+          <Gyroscope gyroscope={gyroscope} />}
           <p className="source-site">
             Source: 
             <a
               className="source-site-link"
-              href="https://usehooks.com/"
+              href="https://github.com/masaok/react-hook-gyroscope"
               target="_blank"
             >
-              https://usehooks.com/
+              massaok
             </a>
           </p></div>
         <div className="box">
