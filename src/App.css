@@ -39,3 +39,6 @@
   line-height: 0.6;
   font-size: 10px;
 }
+.box video{
+  max-width: 100%;
+}

@@ -3,13 +3,16 @@ import { useBattery, useGeolocation } from "@uidotdev/usehooks";
 import Battery from "./hooks/Battery";
 import useOnline from "./hooks/useOnline";
 import Location from "./hooks/useGeoLocation";
+import Webcam from "react-webcam";
 
 function App() {
-  const { level, charging, chargingTime, dischargingTime, supported, loading } = useBattery();
+  const { level, charging, chargingTime, dischargingTime, supported, loading } =
+    useBattery();
 
   const isOnline = useOnline();
 
   const state = useGeolocation();
+
 
   return (
     <>
@@ -25,15 +28,18 @@ function App() {
             level={level}
             charging={charging}
             chargingTime={chargingTime}
-            dischargingTime={dischargingTime} loading={loading}
+            dischargingTime={dischargingTime}
+            loading={loading}
             supported={supported}
           />
         </div>
         <div className="box">
           <h1>useGeolocation</h1>
-          <Location state={state}/>
+          <Location state={state} />
         </div>
-        <div className="box"></div>
+        <div className="box">
+          <Webcam mirrored={true} />
+        </div>
         <div className="box"></div>
         <div className="box"></div>
         <div className="box"></div>
