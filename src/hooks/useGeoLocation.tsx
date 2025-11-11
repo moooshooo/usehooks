@@ -17,28 +17,69 @@ function Location({ state }: { state: geoObject }) {
   }
 
   if (state.error) {
-  return <p>Error: {state.error.message}</p>;
-}
+    return <p>Error: {state.error.message}</p>;
+  }
 
   const date = new Date(state.timestamp ?? Date.now());
   const formattedTime = `${String(date.getHours()).padStart(2, "0")}:${String(
     date.getMinutes()
   ).padStart(2, "0")}`;
 
+  const speedMs = state.speed ?? 0;
+  const formattedSpeedMs = speedMs?.toFixed(2);
+  const speedKmh = speedMs * 3.6; // 1 m/s = 3.6 km/h
+  const formattedSpeed = speedKmh.toFixed(2);
+
+  const formatedAltitude = state.altitude?.toFixed(2);
+
   return (
     <>
-      <h3>Object alternatives:</h3>
-      <p>Loading: {state.loading.toString()}</p>
-      <p>Accuracy: {state.accuracy}</p>
-      <p>Altitude: {state.altitude}</p>
-      <p>Altitude Accuracy: {state.altitudeAccuracy}</p>
-      <p>heading: {state.heading}</p>
-      <p>Latitude: {state.latitude}</p>
-      <p>Longitude: {state.longitude}</p>
-      <p>speed: {state.speed}</p>
-      <p>Timestamp converted: {formattedTime}</p>
-      <p>Latitude: {state.latitude}</p>
-      <p>Error: {state.error}</p>
+      <p>
+        <strong>Loading: </strong>
+        {state.loading.toString()}
+      </p>
+      <p>
+        <strong>Accuracy: </strong>
+        {state.accuracy}
+      </p>
+      <p>
+        <strong>Altitude Accuracy: </strong>
+        {state.altitudeAccuracy}
+      </p>
+      <p>
+        <strong>heading: </strong>
+        {state.heading}
+      </p>
+      <p>
+        <strong>Latitude: </strong>
+        {state.latitude}
+      </p>
+      <p>
+        <strong>Longitude: </strong>
+        {state.longitude}
+      </p>
+      <p>
+        <strong>Speed:</strong>{" "}
+        {state.speed
+          ? `${formattedSpeedMs} m/s (${formattedSpeed} km/h)`
+          : "Ingen hastighet tillgänglig"}
+      </p>
+      <p>
+        <strong>Altitude:</strong>{" "}
+        {state.altitude ? `${formatedAltitude} m` : "Ingen höjddata"}
+      </p>
+      <p>
+        <strong>Timestamp converted: </strong>
+        {formattedTime}
+      </p>
+      <p>
+        <strong>Latitude: </strong>
+        {state.latitude}
+      </p>
+      <p>
+        <strong>Error: </strong>
+        {state.error}
+      </p>
     </>
   );
 }
