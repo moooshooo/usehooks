@@ -73,10 +73,6 @@ function Location({ state }: { state: geoObject }) {
         {formattedTime}
       </p>
       <p>
-        <strong>Latitude: </strong>
-        {state.latitude}
-      </p>
-      <p>
         <strong>Error: </strong>
         {state.error}
       </p>
