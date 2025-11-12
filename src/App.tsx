@@ -4,7 +4,7 @@ import {
   useBattery,
   useGeolocation,
   useWindowSize,
-  useNetworkState
+  useNetworkState,
 } from "@uidotdev/usehooks";
 
 import Battery from "./hooks/Battery";
@@ -14,8 +14,8 @@ import Webcam from "react-webcam";
 import WindowSize from "./hooks/UseWindowSize";
 import NetStats from "./hooks/NetStats";
 
-import Gyroscope from "./hooks/GyroScope"
-import useGyroscope from "react-hook-gyroscope"
+import Gyroscope from "./hooks/GyroScope";
+import useGyroscope from "react-hook-gyroscope";
 
 import SaveToLocalStorage from "./hooks/SaveToLocalStorage";
 
@@ -46,7 +46,7 @@ function App() {
           {isOnline ? <p>🟢 Online </p> : <p>🔴 Kolla WiFi</p>}
 
           <p className="source-site">
-            Source: {" "}
+            Source:{" "}
             <a className="source-site-link" href="#">
               AA
             </a>
@@ -72,7 +72,7 @@ function App() {
           )}
 
           <p className="source-site">
-            Source: {" "}
+            Source:{" "}
             <a
               className="source-site-link"
               href="https://usehooks.com/"
@@ -91,7 +91,7 @@ function App() {
           {showGeo ? <Location state={state} /> : <p>Inget att se än...</p>}
 
           <p className="source-site">
-            Source: {" "}
+            Source:{" "}
             <a
               className="source-site-link"
               href="https://usehooks.com/"
@@ -110,7 +110,7 @@ function App() {
           {showCam ? <Webcam mirrored={true} /> : <p>Inget att se än...</p>}
 
           <p className="source-site">
-            Source: {" "}
+            Source:{" "}
             <a
               className="source-site-link"
               href="https://www.npmjs.com/package/react-webcam"
@@ -126,7 +126,7 @@ function App() {
           <WindowSize size={size} />
 
           <p className="source-site">
-            Source: {" "}
+            Source:{" "}
             <a
               className="source-site-link"
               href="https://usehooks.com/"
@@ -141,7 +141,7 @@ function App() {
           <NetStats network={network} />
 
           <p className="source-site">
-            Source: {" "}
+            Source:{" "}
             <a
               className="source-site-link"
               href="https://usehooks.com/"
@@ -153,10 +153,13 @@ function App() {
         </div>
         <div className="box">
           <h1>useGyroscope</h1>
-            {!gyroscope?.error ? <Gyroscope gyroscope={gyroscope} /> :
-          <p>No gyroscope, sorry.</p>}
+          {!gyroscope?.error ? (
+            <Gyroscope gyroscope={gyroscope} />
+          ) : (
+            <p>No gyroscope, sorry.</p>
+          )}
           <p className="source-site">
-            Source: {" "}
+            Source:{" "}
             <a
               className="source-site-link"
               href="https://github.com/masaok/react-hook-gyroscope"
@@ -164,10 +167,11 @@ function App() {
             >
               massaok
             </a>
-          </p></div>
+          </p>
+        </div>
         <div className="box">
           <h1>TBD</h1>
-          
+
           <p className="source-site">
             Source:{" "}
             <a
@@ -177,11 +181,11 @@ function App() {
             >
               https://usehooks.com/
             </a>
-          </p></div>
-      <div className="box2">
+          </p>
+        </div>
+        <div className="box2">
           <SaveToLocalStorage />
-      </div>
-
+        </div>
       </div>
     </>
   );
